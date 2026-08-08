@@ -1,7 +1,7 @@
 ---
-title: "Configure Symbols for PlanMark to Detect"
+title: "Configuring Reference Symbols for Detection in PlanMark"
 sidebarTitle: "Symbol Configuration"
-description: "Learn how to add reference symbol images, configure detection settings, and manage multiple symbol types so PlanMark can accurately number instances on your plan."
+description: "Add reference symbol images, configure detection sensitivity, and manage symbol types so PlanMark numbers every instance on your plan."
 ---
 
 PlanMark identifies symbols on a building plan by comparing areas of the plan against one or more reference images that you provide. A reference image is a clean, cropped sample of the exact symbol — such as a faceplate icon or floor box marker — that appears on the plan. The more precise your reference image, the more accurately PlanMark can locate every instance, number it, and generate the corresponding faceplate callout annotation.
@@ -59,10 +59,10 @@ PlanMark identifies symbols on a building plan by comparing areas of the plan ag
 Many plans include more than one symbol type — for example, wall jacks and floor boxes may both appear on the same floor plan. Add each symbol type as a separate entry under **Symbol Settings**.
 
 <CardGroup cols={2}>
-  <Card title="Add another symbol" icon="circle-plus">
+  <Card title="Add another symbol" icon="circle-plus" href="/plans/symbol-configuration#configure-a-symbol-for-detection">
     Click **Add Symbol** again and repeat the configuration steps for each additional symbol type. Each type gets its own reference image, name, and sensitivity setting.
   </Card>
-  <Card title="Run detection for all types" icon="play">
+  <Card title="Run detection for all types" icon="play" href="/plans/symbol-configuration#re-running-detection">
     After configuring all symbol types, click **Run Detection** once to detect all configured symbols in a single pass. PlanMark numbers each type independently and displays them in distinct callout styles.
   </Card>
 </CardGroup>
