@@ -1,0 +1,61 @@
+---
+title: "Troubleshooting Common PlanMark Issues"
+sidebarTitle: "Troubleshooting"
+description: "Diagnose and fix the most common PlanMark problems, from missed symbol detections and import failures to blurry exports and distorted plan previews."
+---
+
+Most issues in PlanMark fall into a small number of categories: problems with symbol detection, mismatches between plan location numbers and spreadsheet data, file import errors, and export quality concerns. Work through the relevant section below to identify and resolve your issue. If the steps here don't resolve your problem, contact PlanMark support with your project ID and a screenshot of the issue.
+
+<AccordionGroup>
+  <Accordion title="Symbols not being detected">
+    If PlanMark runs detection but returns zero results, or far fewer results than expected, the most likely causes are an unclear reference image, a low-resolution plan, or a mismatch between the reference and the plan symbols.
+
+    - **Check your reference image.** Open **Symbol Settings** and inspect the reference image you uploaded. It should be cropped tightly around a single clean instance of the symbol, with no surrounding whitespace, adjacent labels, or background noise.
+    - **Verify your plan resolution.** PlanMark requires a minimum of 150 DPI to reliably detect symbols. If you uploaded a scan or a compressed image, re-export it from your source application at a higher resolution before uploading.
+    - **Increase detection sensitivity.** In **Symbol Settings**, raise the sensitivity slider incrementally and re-run detection. A higher sensitivity value catches more instances but may also increase false positives.
+    - **Check symbol orientation and scale.** The symbol on the plan must visually match your reference image. If the plan contains a rotated or mirrored version of the symbol, enable **Allow Rotations** in Symbol Settings. If symbols appear at significantly different sizes across the plan, try uploading a second reference image that reflects the smaller or larger variant.
+  </Accordion>
+
+  <Accordion title="Wrong number of symbols detected (too many or too few)">
+    If PlanMark detects more or fewer symbol instances than actually appear on the plan, adjust your reference image and sensitivity settings.
+
+    **Too many detections (false positives):**
+    - Your reference image may be matching similar-looking elements that are not the intended symbol. Crop the reference image more tightly so it captures only the unique visual features of the symbol.
+    - Reduce the detection sensitivity slider in **Symbol Settings** and re-run detection.
+
+    **Too few detections (false negatives):**
+    - The plan may contain symbol instances that differ in size from your reference. Upload an additional reference image representing the smaller or larger variant — PlanMark will match against all uploaded references for that symbol type.
+    - Some symbols on the plan may be partially obscured, overprinted, or rendered at low contrast. Increase sensitivity slightly to capture these edge cases.
+  </Accordion>
+
+  <Accordion title="Faceplate callouts not appearing on some symbols">
+    When a detected symbol shows no faceplate callout, it means PlanMark could not find a matching row for that location number in your imported spreadsheet.
+
+    - **Verify that location numbers match.** The number assigned to the symbol on the plan must exactly match a value in **Column A** (the Location column) of your spreadsheet. Open the Port Report to see which location numbers have blank port fields.
+    - **Check for gaps in your spreadsheet.** If your plan has a symbol numbered 7 but your spreadsheet skips from row 6 to row 8, that symbol will have no match. Add the missing row and re-import.
+    - **Re-run detection after importing.** If you imported or updated the spreadsheet after the last detection run, click **Re-run Detection** on the project overview page. Callouts are linked at detection time, so existing results may be stale.
+  </Accordion>
+
+  <Accordion title="Excel import fails or shows wrong columns">
+    If the import dialog reports an error, or if the column mapper displays unexpected or empty column names, check the following:
+
+    - **Use a supported file type.** PlanMark accepts `.xlsx` and `.xls` files only. CSV files are not supported for import — use the CSV option in **Export → Port Report** for output only.
+    - **Confirm Row 1 contains headers.** The first row of your spreadsheet must contain column headers. The expected header names are `Location`, `Port 1`, and `Port 2`. If your headers are named differently, use the **Column Mapper** in the import dialog to manually match each column to its PlanMark field.
+    - **Move your data to Sheet 1.** PlanMark only reads the first worksheet in the workbook. If your port assignment table is on Sheet 2 or a renamed tab, copy it to the first sheet before importing.
+  </Accordion>
+
+  <Accordion title="Exported PDF looks blurry or callouts are hard to read">
+    Blurry exports or illegible callout labels are almost always a resolution or source-quality issue.
+
+    - **Re-export at a higher DPI.** In the export panel, select **Print (300 DPI)** or **High-Res (600 DPI)** and download again. Screen (96 DPI) exports are intended for on-screen review only and will look soft when printed.
+    - **Check your source plan resolution.** If the original uploaded plan is low-resolution, the exported overlay will inherit that quality. Re-upload the plan at the highest available resolution and re-run detection before exporting.
+    - **Shorten long port labels.** Port labels longer than 12 characters may be truncated in the callout overlay to prevent text from overflowing the faceplate bounds. Edit your spreadsheet to shorten any long port assignment values, re-import, and re-export.
+  </Accordion>
+
+  <Accordion title="Plan preview looks distorted after upload">
+    If the plan appears stretched, squashed, or incorrectly scaled in the PlanMark viewer after uploading, the source file or upload process may have introduced a rendering issue.
+
+    - **Check file size.** Files larger than 50 MB are automatically downsampled during upload, which can affect aspect ratio or detail. Re-export the plan from your CAD or PDF application at a smaller canvas size or with optimised compression settings, then re-upload.
+    - **Remove password protection.** PlanMark cannot correctly parse password-protected PDF files. Open the PDF in your source application, remove the password, save, and re-upload.
+  </Accordion>
+</AccordionGroup>

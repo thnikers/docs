@@ -1,0 +1,61 @@
+---
+title: "Faceplate Callouts: Annotating Ports on Building Plans"
+sidebarTitle: "Overview"
+description: "Learn how PlanMark overlays faceplate callout annotations on detected symbols in your building plans, linking each location to port assignment data."
+---
+
+Faceplate callouts are visual annotations that PlanMark draws on top of your building plan at each detected symbol. Each callout is shaped like a real wall faceplate, making it immediately recognizable to anyone familiar with structured cabling or AV installations. Inside the callout shape, PlanMark displays the port labels pulled directly from your Excel spreadsheet, so every annotation is always in sync with your port assignment data.
+
+## How Faceplate Callouts Work
+
+When PlanMark processes your building plan, it scans for designated symbols (such as outlet or data port markers) and assigns each one a sequential location number. That number appears prominently on or near the faceplate callout anchored to that symbol's position on the plan. The location number is the key that ties the callout back to the corresponding row in your Excel spreadsheet — if location number 7 appears on the plan, row 7 in your spreadsheet defines which port labels are shown inside that callout.
+
+Port labels are rendered inside the faceplate shape itself, occupying the port slot regions of the callout. The layout mirrors the physical faceplate it represents: a single-port faceplate shows one port slot, and a dual-port faceplate shows two stacked slots.
+
+## Single-Port vs. Dual-Port Variants
+
+PlanMark automatically selects the correct faceplate variant based on your spreadsheet data:
+
+- **Single-port faceplate** — rendered when a location row has Port 1 filled in but Port 2 is blank. The callout displays one port slot containing the Port 1 label.
+- **Dual-port faceplate** — rendered when both Port 1 and Port 2 are filled in. The callout displays two stacked port slots, with Port 1 on top and Port 2 on the bottom.
+
+You do not need to specify the variant manually. PlanMark reads the port columns in your spreadsheet and chooses the appropriate shape for each location automatically.
+
+## Callouts Are a Non-Destructive Overlay
+
+<Note>
+  Faceplate callouts are rendered as an overlay layer on top of your building plan. The original plan file is never modified. You can toggle callout visibility, regenerate annotations, or clear them entirely without affecting the underlying plan document.
+</Note>
+
+## Explore Faceplate Features
+
+<CardGroup cols={2}>
+  <Card
+    title="Single-Port Faceplate"
+    icon="square"
+    href="/faceplates/single-port"
+  >
+    Understand when and how single-port faceplate callouts are rendered on your plan.
+  </Card>
+  <Card
+    title="Dual-Port Faceplate"
+    icon="table-cells"
+    href="/faceplates/dual-port"
+  >
+    Learn how dual-port callouts display two port labels stacked inside one faceplate shape.
+  </Card>
+  <Card
+    title="Custom Shapes"
+    icon="pen-ruler"
+    href="/faceplates/custom-shapes"
+  >
+    Replace the default faceplate graphic with your own branded or hardware-specific image.
+  </Card>
+  <Card
+    title="Port Assignments"
+    icon="file-excel"
+    href="/excel/port-assignments"
+  >
+    See how to structure your Excel spreadsheet so PlanMark reads port data correctly.
+  </Card>
+</CardGroup>

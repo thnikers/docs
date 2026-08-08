@@ -1,0 +1,58 @@
+---
+title: "Use Custom Faceplate Shapes in PlanMark"
+sidebarTitle: "Custom Shapes"
+description: "Replace PlanMark's default faceplate graphic with your own branded or hardware-specific image for single-port, dual-port, or both callout variants."
+---
+
+PlanMark ships with a clean, neutral default faceplate shape that works well on most building plans. When your project requires branded documentation, hardware-specific graphics, or a faceplate style that matches your organisation's standards, you can replace the default shape with a custom image. Custom shapes apply to all callouts of the selected variant — swap in your image once and every matching callout on the plan updates automatically.
+
+## Recommended Image Specifications
+
+Before uploading, prepare your image to meet these specifications for the sharpest results:
+
+| Property | Single-Port | Dual-Port |
+|----------|-------------|-----------|
+| **Format** | PNG (transparent background) or SVG | PNG (transparent background) or SVG |
+| **Dimensions** | 200 × 200 px | 200 × 300 px |
+| **Port label area** | One clearly defined empty region | Two clearly defined empty regions, stacked |
+| **Background** | Transparent | Transparent |
+
+Keep port label areas as open, uncluttered regions inside the shape so that PlanMark can overlay the label text cleanly without it competing with the graphic detail.
+
+## Upload a Custom Shape
+
+<Steps>
+  <Step title="Open Faceplate Shape Settings">
+    Navigate to **Settings → Faceplate Shapes** in the PlanMark sidebar. This panel lists your currently active shapes for both the single-port and dual-port variants.
+  </Step>
+  <Step title="Add a New Custom Shape">
+    Click **Add Custom Shape**. A dialog opens prompting you to name the shape and select the file to upload.
+  </Step>
+  <Step title="Upload Your Image File">
+    Select a PNG or SVG file from your computer. For best results, use a PNG with a transparent background or a clean SVG at the recommended dimensions. PlanMark accepts files up to 5 MB.
+  </Step>
+  <Step title="Assign the Shape to a Variant">
+    After the upload completes, use the **Apply to** dropdown to set the new shape as the active graphic for **Single-Port**, **Dual-Port**, or **Both**. You can maintain different custom shapes for each variant simultaneously.
+  </Step>
+  <Step title="Save and Apply">
+    Click **Save**. PlanMark immediately re-renders all existing callouts on the current plan using the new shape. No manual refresh or re-upload of your plan is required.
+  </Step>
+</Steps>
+
+## Define Port Label Placement With the Shape Editor
+
+<Tip>
+  After uploading your custom image, open it in the built-in shape editor (click the pencil icon next to your shape in the Faceplate Shapes panel). Use the editor to drag and resize the port label text zones — the areas where PlanMark overlays the Port 1 and Port 2 label text. Precise placement ensures your labels land exactly inside the port slot regions of your graphic, not on a border or decorative element.
+</Tip>
+
+## Reverting to the Default Shape
+
+<Note>
+  To restore the PlanMark default faceplate, go to **Settings → Faceplate Shapes**, select the variant you want to reset, and click **Revert to Default**. Your uploaded custom shapes are not deleted — they remain available in the shape library so you can reapply them at any time.
+</Note>
+
+## Shape Complexity and Plan Legibility
+
+<Warning>
+  Very complex or high-contrast custom shapes — for example, images with detailed textures, dark fills, or heavy borders — may obscure the underlying building plan details beneath the callout. Review your annotated plan at full zoom after applying a custom shape to confirm that critical plan elements (walls, dimensions, other symbols) remain visible. If legibility is affected, simplify the shape or reduce its opacity using the **Callout Opacity** slider in **Settings → Display**.
+</Warning>

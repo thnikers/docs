@@ -1,0 +1,76 @@
+---
+title: "Configure Symbols for PlanMark to Detect"
+sidebarTitle: "Symbol Configuration"
+description: "Learn how to add reference symbol images, configure detection settings, and manage multiple symbol types so PlanMark can accurately number instances on your plan."
+---
+
+PlanMark identifies symbols on a building plan by comparing areas of the plan against one or more reference images that you provide. A reference image is a clean, cropped sample of the exact symbol — such as a faceplate icon or floor box marker — that appears on the plan. The more precise your reference image, the more accurately PlanMark can locate every instance, number it, and generate the corresponding faceplate callout annotation.
+
+## Configure a Symbol for Detection
+
+<Steps>
+  <Step title="Open the plan in your project">
+    From your project dashboard, click the plan sheet you want to configure symbol detection for. The plan opens in the PlanMark editor view.
+  </Step>
+  <Step title="Go to Symbol Settings → Add Symbol">
+    In the right-hand panel, click the **Symbol Settings** tab, then click **Add Symbol**. A configuration panel slides open where you can define a new symbol type for this plan.
+  </Step>
+  <Step title="Upload a reference image of the symbol">
+    Click **Upload Reference Image** and select a clean, cropped image of the symbol. The reference image should isolate a single instance of the symbol with minimal surrounding whitespace and no overlapping annotations or text.
+
+    <Tabs>
+      <Tab title="Cropping tips">
+        - Crop the image tightly around the symbol boundary, leaving only a few pixels of padding on each side.
+        - Use a symbol instance that is clearly printed and free from smudges, overlapping lines, or handwritten marks.
+        - Source your reference image from the same plan you are running detection on whenever possible — this ensures the scale, line weight, and style match exactly.
+        - Export or screenshot the crop at the same resolution as the uploaded plan for the best match accuracy.
+      </Tab>
+      <Tab title="What to avoid">
+        - Do not use a symbol that is partially obscured by a dimension line, text label, or another symbol.
+        - Avoid symbols near the edge of the plan where the image may be cropped or distorted.
+        - Do not rotate or resize the reference image — PlanMark matches symbols at the orientation and scale they appear on the plan.
+      </Tab>
+    </Tabs>
+
+    <Tip>
+      If the symbol image appears blurry or rotated even slightly, detection accuracy drops noticeably. Take a fresh screenshot or re-export the crop rather than using an image that has been resized or saved through a lossy format multiple times.
+    </Tip>
+  </Step>
+  <Step title="Set the symbol name">
+    In the **Symbol Name** field, enter a descriptive label for this symbol type — for example, `Wall Jack`, `Floor Box`, or `Ceiling Drop`. This name appears in the callout annotations and the linked Excel port assignment spreadsheet, so use a name that matches your network documentation conventions.
+  </Step>
+  <Step title="Adjust detection sensitivity if needed">
+    The **Sensitivity** slider controls how strictly PlanMark requires a plan region to match the reference image before counting it as a detected instance.
+
+    <Info>
+      - **Higher sensitivity** reduces false positives but may miss instances where the printed symbol is slightly faded or varies slightly in size.
+      - **Lower sensitivity** captures more instances but may flag non-symbol elements as matches.
+
+      Start with the default (middle) setting and re-run detection to review results before adjusting.
+    </Info>
+  </Step>
+  <Step title="Save and run detection">
+    Click **Save Symbol**, then click **Run Detection** to scan the plan for all instances of the configured symbol. PlanMark numbers each detected instance sequentially and overlays faceplate callout annotations on the plan. Detected instances also populate the corresponding rows in your linked Excel port assignment spreadsheet.
+  </Step>
+</Steps>
+
+## Managing Multiple Symbol Types
+
+Many plans include more than one symbol type — for example, wall jacks and floor boxes may both appear on the same floor plan. Add each symbol type as a separate entry under **Symbol Settings**.
+
+<CardGroup cols={2}>
+  <Card title="Add another symbol" icon="circle-plus">
+    Click **Add Symbol** again and repeat the configuration steps for each additional symbol type. Each type gets its own reference image, name, and sensitivity setting.
+  </Card>
+  <Card title="Run detection for all types" icon="play">
+    After configuring all symbol types, click **Run Detection** once to detect all configured symbols in a single pass. PlanMark numbers each type independently and displays them in distinct callout styles.
+  </Card>
+</CardGroup>
+
+<Note>
+  If you modify a symbol's reference image, name, or sensitivity setting after detection has already run, you must click **Run Detection** again to apply the changes. Previously generated callout numbers and spreadsheet entries are updated automatically when the new detection run completes.
+</Note>
+
+## Re-Running Detection
+
+You can re-run detection at any time — for example, after cropping a better reference image or after replacing the plan with a higher-resolution version. Re-running detection replaces all previously generated callout numbers for that symbol type with a fresh set, so confirm your port assignment data is backed up or saved before doing so.

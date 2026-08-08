@@ -1,30 +1,11 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
+  "projectType": "saas",
+  "projectName": "PlanMark",
+  "projectDescription": "A web application that scans building plans for designated symbols, numbers each detected instance, and generates faceplate callout annotations linked to port assignments in an Excel spreadsheet.",
   "theme": "almond",
-  "name": "PlanMark",
-  "colors": {
-    "primary": "#ef7025",
-    "light": "#eec9bc",
-    "dark": "#4fa1ab"
-  },
-  "favicon": "/favicon.svg",
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@planmark.app"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Get Started",
-      "href": "/quickstart"
-    }
-  },
+  "primaryColor": "#ef7025",
+  "lightColor": "#eec9bc",
+  "darkColor": "#4fa1ab",
   "navigation": {
     "tabs": [
       {
@@ -81,7 +62,20 @@
       }
     ]
   },
-  "footer": {
-    "socials": {}
-  }
+  "keyFeatures": [
+    "Automatic symbol detection on uploaded building plans",
+    "Sequential numbering of detected symbols",
+    "Excel spreadsheet import for port assignment data",
+    "Single-port and dual-port faceplate callout annotations",
+    "Callout numbers matched to spreadsheet location rows",
+    "Annotated plan export"
+  ],
+  "publicApiSurface": [
+    "Upload building plan (PDF/image)",
+    "Configure target symbols for detection",
+    "Import Excel spreadsheet with port assignments",
+    "View annotated plan with numbered callouts",
+    "Export annotated plan",
+    "Generate port assignment report"
+  ]
 }

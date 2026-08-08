@@ -1,0 +1,66 @@
+---
+title: "PlanMark Frequently Asked Questions"
+sidebarTitle: "FAQ"
+description: "Answers to the most common questions about file formats, symbol detection, port assignments, numbering, multi-story projects, and sharing in PlanMark."
+---
+
+Find quick answers to the most frequently asked questions about PlanMark below. If your question isn't covered here, visit the [Troubleshooting](/troubleshooting) guide or contact PlanMark support.
+
+<AccordionGroup>
+  <Accordion title="What file formats does PlanMark support for building plans?">
+    PlanMark accepts building plans in the following formats:
+
+    - **PDF** — single-page or multi-page
+    - **PNG**
+    - **JPEG**
+    - **TIFF**
+
+    The maximum file size is **50 MB**. For reliable symbol detection, your plan should have a resolution of at least **150 DPI**. Plans uploaded below this threshold may produce incomplete or inaccurate detection results.
+  </Accordion>
+
+  <Accordion title="How do I provide the symbols PlanMark should look for?">
+    Navigate to **Symbol Settings** in your project and upload a reference image for each symbol type you want PlanMark to detect. The reference image should be a clear, tightly cropped crop of a single instance of the symbol — avoid including surrounding labels, borders, or background elements. PlanMark uses this image as the visual template for all detections across your plan.
+  </Accordion>
+
+  <Accordion title="Can I detect multiple different symbol types on the same plan?">
+    Yes. Add one reference image per symbol type in **Symbol Settings** — for example, a dual-port faceplate and a single-port faceplate can each have their own reference image. By default, each symbol type gets its own independent number sequence (1, 2, 3 … per type). If you prefer a single shared sequence across all symbol types, switch to **Shared Numbering** in Symbol Settings.
+  </Accordion>
+
+  <Accordion title="What do Port 1 and Port 2 mean?">
+    Port 1 and Port 2 refer to the two physical network ports on a dual-port faceplate. In the faceplate callout overlay, **Port 1** is displayed on the top half of the callout and **Port 2** is displayed on the bottom half. For single-port faceplates, only the Port 1 field is shown. The values for both ports come from the corresponding columns in your imported Excel spreadsheet.
+  </Accordion>
+
+  <Accordion title="The location numbers on my plan don't match the spreadsheet — what went wrong?">
+    PlanMark assigns location numbers to detected symbols in **left-to-right, top-to-bottom** reading order across each sheet. If your existing floor plan uses a different numbering scheme — for example, numbers assigned by zone or installed order — the auto-assigned numbers won't align with your spreadsheet.
+
+    To resolve this, open the **Location Editor** and manually re-map each auto-assigned number to the correct location number from your plan. Once remapped, the callouts and port report will reflect your intended numbering.
+  </Accordion>
+
+  <Accordion title="Can I edit port assignments after importing?">
+    Yes. Update the port assignment values in your Excel file, then re-import it via **Import → Spreadsheet**. PlanMark will refresh all faceplate callouts automatically to reflect the updated data. You do not need to re-run symbol detection after a spreadsheet update.
+  </Accordion>
+
+  <Accordion title="Does PlanMark modify my original plan file?">
+    No. PlanMark never alters your uploaded source file. All faceplate callouts are rendered as a non-destructive overlay that exists only within the PlanMark project. Your original plan file remains unchanged, and the overlay is only applied at export time when you generate an annotated PDF or PNG.
+  </Accordion>
+
+  <Accordion title="Can I use PlanMark on multi-story buildings?">
+    Yes. You have two options for organising multi-story projects:
+
+    - **Multi-page PDF** — Upload all floor plans as pages within a single PDF file. PlanMark treats each page as a separate sheet.
+    - **Individual plan files** — Upload each floor as a separate file and add them all to the same project. Each file appears as a distinct sheet in the project viewer.
+
+    Detection, callouts, and reports all operate across all sheets in a project, and you can filter by floor or sheet when generating a Port Report.
+  </Accordion>
+
+  <Accordion title="How do I share annotated plans with my team?">
+    You have two options:
+
+    - **Download and share** — Export the annotated plan as a PDF or PNG and share the downloaded file via email, a file-sharing service, or your document management system.
+    - **Share Link** — Use the **Share** button in the project toolbar to generate a view-only link. Recipients can view the annotated plan in their browser without needing a PlanMark account.
+  </Accordion>
+
+  <Accordion title="What should I do if detection accuracy is low?">
+    Start by reviewing your reference symbol image in **Symbol Settings** — it should be a clean, tightly cropped crop of one symbol instance with no surrounding noise. Also confirm that your plan was uploaded at 150 DPI or higher. For detailed steps on diagnosing and improving detection results, see the [Troubleshooting](/troubleshooting) guide.
+  </Accordion>
+</AccordionGroup>

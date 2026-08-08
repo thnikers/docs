@@ -1,0 +1,38 @@
+---
+title: "Single-Port Faceplate Callouts in PlanMark"
+sidebarTitle: "Single-Port"
+description: "Discover how PlanMark renders single-port faceplate callouts when a location row has one port assigned, and how to read and troubleshoot them."
+---
+
+A single-port faceplate callout appears on your building plan whenever PlanMark detects that a location row in your Excel spreadsheet has a value in the Port 1 column but the Port 2 column is empty. PlanMark renders a rectangular callout styled to resemble a 1-gang single-port wall faceplate — compact, clean, and immediately legible on even dense floor plans.
+
+## Visual Layout
+
+The callout is anchored directly to the detected symbol on the plan. It consists of:
+
+- **Location number** — displayed prominently at the top of or adjacent to the callout, matching the row number in your spreadsheet.
+- **Port slot** — a single rectangular region inside the faceplate shape that shows the Port 1 label text (for example, `B-07`).
+
+The callout is sized to balance visibility with plan readability. If you find the default size too large or too small for your plan's scale, adjust the callout scale setting under **Settings → Display**.
+
+## Worked Example
+
+Consider a spreadsheet row where:
+
+| Location | Port 1 | Port 2 |
+|----------|--------|--------|
+| 4        | B-07   |        |
+
+PlanMark reads this row, sees that Port 2 is blank, and places a single-port faceplate callout at the position of symbol #4 on the plan. The callout shows the number **4** and a single port slot containing the label **B-07**. Anyone reviewing the plan can immediately identify that outlet 4 is patched to port B-07.
+
+## Port Label Length
+
+<Note>
+  Keep port label text under 12 characters for the best readability inside the callout. Longer labels are truncated with an ellipsis in the rendered callout. If you need to display extended identifiers, consider using an abbreviation convention (for example, `PP1-B07` instead of `PatchPanel1-PortB07`).
+</Note>
+
+## Troubleshooting: Seeing a Dual-Port Callout Instead
+
+<Tip>
+  If you expect a single-port callout at a given location but PlanMark renders a dual-port callout instead, open your spreadsheet and check the Port 2 column for that row. A stray space, a hidden character, or an accidental value in Port 2 is enough to trigger the dual-port variant. Clear the Port 2 cell completely, save the spreadsheet, and re-upload it to PlanMark to force a single-port callout.
+</Tip>

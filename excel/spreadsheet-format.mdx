@@ -1,0 +1,46 @@
+---
+title: "Excel Spreadsheet Format for PlanMark Port Data"
+sidebarTitle: "Spreadsheet Format"
+description: "Learn the required column structure for the Excel spreadsheet PlanMark uses to match location numbers on your plan to port assignment data."
+---
+
+PlanMark reads port assignment data from an Excel workbook you supply. The workbook must follow a specific three-column structure so PlanMark can correctly pair each numbered symbol on your plan with its corresponding port label or labels. Understanding this format before you build your spreadsheet saves time and prevents mismatched callouts on your finished plan.
+
+## Required Column Structure
+
+Your spreadsheet must contain the following columns, starting at column A:
+
+| Column | Header Text | Required | Description |
+|--------|-------------|----------|-------------|
+| A | `Location` | Yes | A positive integer that matches a numbered symbol on the plan |
+| B | `Port 1` | Yes | The port identifier or label for the primary port (e.g. `A-01`, `IDF-3-P1`) |
+| C | `Port 2` | No | The port identifier for the secondary port — triggers a dual-port faceplate when present |
+
+Row 1 must be the header row containing the exact text `Location`, `Port 1`, and `Port 2`. PlanMark treats row 1 as column labels, not data, so your location records must begin at row 2.
+
+## Example Spreadsheet
+
+The table below shows five sample rows demonstrating both single-port and dual-port entries:
+
+| Location | Port 1 | Port 2 |
+|----------|--------|--------|
+| 1 | A-01 | A-02 |
+| 2 | B-01 | |
+| 3 | C-01 | C-02 |
+| 4 | D-01 | |
+| 5 | E-01 | E-02 |
+
+- **Rows 1, 3, and 5** each have a value in Port 2, so PlanMark renders a dual-port faceplate callout at those locations.
+- **Rows 2 and 4** leave Port 2 blank, so PlanMark renders a single-port faceplate callout showing only Port 1.
+
+<Note>
+  Location numbers do not need to be sequential. PlanMark matches each row to a symbol by the value in column A alone, so you can number locations in any order as long as each value corresponds to a numbered symbol on the plan.
+</Note>
+
+<Warning>
+  If a symbol number on your plan has no matching row in the spreadsheet, PlanMark will not render a callout at that location. For example, if symbol 7 appears on the plan but row 7 is missing from your spreadsheet, that location will be left unannotated. Always verify that every plan symbol has a corresponding entry before importing.
+</Warning>
+
+<Tip>
+  You can download the official PlanMark template spreadsheet directly from the app. It includes the correct headers, column order, and sample rows so you can start entering your data right away without setting up the format manually.
+</Tip>

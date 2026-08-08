@@ -1,0 +1,60 @@
+---
+title: "How PlanMark Detects and Annotates Symbols"
+sidebarTitle: "How It Works"
+description: "Learn how PlanMark's detection pipeline finds symbols, assigns sequential numbers, matches Excel rows, and renders single- or dual-port faceplate callouts."
+---
+
+PlanMark connects four distinct stages — symbol detection, sequential numbering, spreadsheet matching, and faceplate callout rendering — into a single automated pipeline. Understanding how each stage works helps you prepare your input files correctly and interpret the output with confidence.
+
+## The End-to-End Pipeline
+
+<Steps>
+  <Step title="Symbol Detection">
+    You supply one or more **reference images** — clean, cropped pictures of the symbol as it appears on your building plan (for example, a wall-outlet icon). PlanMark uses template-matching and feature-comparison algorithms to scan every region of the uploaded plan and identify locations where the same symbol appears.
+
+    Each candidate match is assigned a **confidence score**. Matches that exceed the configured confidence threshold are accepted; anything below the threshold is discarded as a non-match. You can raise or lower the threshold in **Project Settings → Detection** to balance precision against recall for your specific plan style.
+
+    <Tip>
+      Supplying multiple reference images of the same symbol — cropped from different pages or slightly different print runs — improves detection consistency across plans that mix drawing styles or scales.
+    </Tip>
+  </Step>
+
+  <Step title="Sequential Numbering">
+    After detection, PlanMark assigns a unique **location number** to every accepted symbol instance. Numbers are assigned in reading order: left-to-right, then top-to-bottom across the plan sheet.
+
+    <Note>
+      Numbering follows the position of the symbol's centre point on the plan canvas. If two symbols share nearly the same vertical position, the one with the smaller horizontal coordinate receives the lower number. For multi-page plans, numbering resets to 1 at the start of each page.
+    </Note>
+
+    The location number serves as the primary key that ties each physical symbol instance on the plan to a specific row in your Excel spreadsheet.
+  </Step>
+
+  <Step title="Excel Spreadsheet Matching">
+    PlanMark reads your uploaded Excel workbook and looks up each **location number** against the corresponding row. The workbook must contain at minimum:
+
+    - A **Location Number** column — integer values that match the numbers assigned in the previous step.
+    - A **Port 1** column — the label or identifier to display in the top half of the faceplate callout.
+    - An optional **Port 2** column — a second label displayed in the bottom half for dual-port faceplates.
+
+    Rows whose location number has no corresponding detected symbol on the plan are ignored. Detected symbols whose location number has no matching row in the spreadsheet are flagged with a **⚠ Unmatched** indicator in the review panel so you can investigate gaps before exporting.
+  </Step>
+
+  <Step title="Faceplate Callout Rendering">
+    For every successfully matched location, PlanMark overlays a **faceplate callout** — a rectangular annotation box styled to resemble a physical network faceplate — at the symbol's position on the plan.
+
+    The layout of the callout depends on the data in the matched spreadsheet row:
+
+    - **Single-port faceplate** — the matched row has a Port 1 value but no Port 2 value. The callout displays a single full-height label box containing the Port 1 identifier.
+    - **Dual-port faceplate** — the matched row has both a Port 1 and a Port 2 value. The callout is split horizontally: Port 1 appears in the **top** half and Port 2 appears in the **bottom** half, mirroring the physical layout of a two-port faceplate.
+
+    A thin leader line connects the callout box to the centre of the detected symbol so the relationship remains clear even when the callout is nudged to avoid overlapping text or other annotations.
+
+    <Info>
+      Callout size and font scale automatically to match the plan's resolution and zoom level, ensuring labels remain legible at both screen resolution and print resolution without any manual adjustment.
+    </Info>
+  </Step>
+</Steps>
+
+## Why This Approach
+
+By separating detection, numbering, data matching, and rendering into discrete stages, PlanMark lets you update any one part without redoing the rest. Change a port assignment in your spreadsheet and re-render — no need to re-run detection. Refine a reference image and re-detect — your spreadsheet mapping is preserved. This staged design keeps iteration fast and reduces the risk of introducing errors when plans or data change late in a project.

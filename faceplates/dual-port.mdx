@@ -1,0 +1,39 @@
+---
+title: "Dual-Port Faceplate Callouts in PlanMark"
+sidebarTitle: "Dual-Port"
+description: "Learn how PlanMark renders dual-port faceplate callouts when both port columns are filled, displaying Port 1 on top and Port 2 on the bottom."
+---
+
+A dual-port faceplate callout appears on your building plan when PlanMark finds that a location row in your Excel spreadsheet has values in both the Port 1 and Port 2 columns. PlanMark renders a taller rectangular callout styled to resemble a 1-gang dual-port wall faceplate, with two clearly separated port slots stacked vertically inside the shape.
+
+## Visual Layout
+
+The callout is anchored to the detected symbol on the plan and contains three key elements:
+
+- **Location number** — displayed prominently at the top of or adjacent to the callout, matching the row number in your spreadsheet.
+- **Port 1 slot (top)** — the upper region inside the faceplate shape, showing the Port 1 label.
+- **Port 2 slot (bottom)** — the lower region inside the faceplate shape, showing the Port 2 label.
+
+This stacked layout mirrors the physical appearance of a real dual-port wall faceplate, making it intuitive to read directly on the plan without a separate legend.
+
+## Port Slot Order Is Fixed
+
+<Note>
+  Port 1 is always rendered in the top slot and Port 2 is always rendered in the bottom slot. This order reflects standard faceplate conventions and cannot be swapped. If your installation uses a different physical ordering, update the port label values in your spreadsheet to match the order you want displayed.
+</Note>
+
+## Worked Example
+
+Consider a spreadsheet row where:
+
+| Location | Port 1 | Port 2 |
+|----------|--------|--------|
+| 1        | A-01   | A-02   |
+
+PlanMark reads this row, sees that both Port 1 and Port 2 are filled, and places a dual-port faceplate callout at the position of symbol #1 on the plan. The callout shows the number **1**, with **A-01** in the top slot and **A-02** in the bottom slot. A technician can glance at the plan and know immediately that both ports at outlet 1 are patched — Port 1 to A-01 and Port 2 to A-02.
+
+## Naming Conventions for Self-Describing Callouts
+
+<Tip>
+  Use a consistent port naming convention — such as patch panel ID followed by port number (for example, `PP2-A01`) — so that every dual-port callout is self-describing at a glance. When both slots follow the same format, reviewers can instantly understand the patch destination without cross-referencing the spreadsheet. Establish your naming convention before populating the spreadsheet to avoid relabeling later.
+</Tip>

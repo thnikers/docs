@@ -1,0 +1,50 @@
+---
+title: "Export Annotated Building Plans from PlanMark"
+sidebarTitle: "Annotated Plans"
+description: "Export your building plan as a high-resolution PDF or PNG with all faceplate callout annotations baked in as an overlay, ready for print or sharing."
+---
+
+After PlanMark detects your symbols and you've confirmed all faceplate callouts are correctly linked to your port assignment data, you can export the fully annotated plan as a publication-ready file. The exported output renders every callout as a visual overlay on top of your original plan, giving contractors, IT teams, and project stakeholders a single document they can print, mark up, or archive.
+
+<Warning>
+  The exported file includes callout overlays permanently composited onto the plan image. It is **not** a copy of your raw original plan file — use this export for sharing and printing, not as a replacement for your source document.
+</Warning>
+
+## Export an Annotated Plan
+
+<Steps>
+  <Step title="Open your project and confirm all callouts look correct">
+    Navigate to your project from the PlanMark dashboard. Review each sheet in the plan viewer and confirm that every detected symbol displays the expected faceplate callout with the correct port assignments. If any callouts are missing or incorrect, resolve those issues before exporting.
+  </Step>
+  <Step title="Click Export → Annotated Plan">
+    In the top navigation bar, click **Export**, then select **Annotated Plan** from the dropdown menu. The export configuration panel will open on the right side of the screen.
+  </Step>
+  <Step title="Choose a file format">
+    Select the output format that suits your delivery method:
+
+    - **PDF** — Packages all sheets into a single multi-page document. Best for projects with multiple floors or plan sheets. Preserves vector-quality text in callout labels.
+    - **PNG** — Produces one image file per sheet. Best when you need individual raster images for embedding in reports or presentations.
+  </Step>
+  <Step title="Choose an output resolution">
+    Select the DPI setting that matches your intended use:
+
+    | Option | DPI | Best for |
+    |---|---|---|
+    | Screen | 96 DPI | On-screen review, email attachments |
+    | Print | 300 DPI | Standard print, contractor handoff |
+    | High-Res | 600 DPI | Large-format or wall-sized printing |
+  </Step>
+  <Step title="Click Download">
+    Click the **Download** button at the bottom of the export panel. PlanMark will render the annotated output and your browser will prompt you to save the file. Rendering time depends on the number of sheets and the selected resolution.
+  </Step>
+</Steps>
+
+<Tip>
+  Use **Print (300 DPI)** when sharing plans with contractors or printing wall-sized installations. It strikes the right balance between file size and sharpness, keeping callout labels crisp and legible at large print dimensions.
+</Tip>
+
+## Exporting Individual Sheets
+
+<Note>
+  In a multi-page project, PlanMark exports all sheets by default. To export a single sheet, open that sheet in the plan viewer, then click **Export → Annotated Plan** — the export panel will pre-select only the active sheet. You can also deselect individual sheets in the export panel's sheet list before downloading.
+</Note>

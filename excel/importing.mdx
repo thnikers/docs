@@ -1,0 +1,61 @@
+---
+title: "Import Your Excel Spreadsheet into PlanMark"
+sidebarTitle: "Importing"
+description: "Step-by-step instructions for importing your port assignment spreadsheet into PlanMark and keeping callout data up to date when assignments change."
+---
+
+Once your Excel spreadsheet is ready with location numbers and port assignments, you import it into PlanMark to populate the faceplate callout annotations on your plan. The import process validates your column mapping before committing any changes, so you can catch formatting issues before they affect your plan view.
+
+## Import Your Spreadsheet
+
+<Steps>
+  <Step title="Open your project">
+    Navigate to your project in PlanMark. Make sure your building plan has already been processed and symbols have been detected and numbered before you import port data.
+  </Step>
+  <Step title="Open the Import Spreadsheet dialog">
+    Click the **Data** tab in the top navigation bar, then select **Import Spreadsheet** from the dropdown menu.
+  </Step>
+  <Step title="Select your file">
+    In the file picker that appears, select your `.xlsx` or `.xls` workbook and click **Open**. PlanMark accepts both the modern Excel format (`.xlsx`) and the legacy binary format (`.xls`).
+  </Step>
+  <Step title="Confirm the column mapping">
+    PlanMark displays a preview of the detected columns from your file. Verify that the **Location**, **Port 1**, and **Port 2** columns are correctly identified. If any column is mapped incorrectly, use the column mapper dropdowns to reassign them before continuing.
+
+    <Tip>
+      If your spreadsheet uses different column headers — for example `Loc`, `Primary Port`, or `Secondary Port` — the column mapper lets you manually match each of your headers to the fields PlanMark expects. You do not need to rename your columns in the spreadsheet first.
+    </Tip>
+  </Step>
+  <Step title="Click Import">
+    Click the **Import** button to confirm. PlanMark validates the data, checks for missing required values, and loads the port assignments.
+  </Step>
+  <Step title="Review your plan">
+    The plan view refreshes automatically. Faceplate callout annotations appear at each numbered symbol location. Single-port callouts display where only Port 1 was provided; dual-port callouts display where both Port 1 and Port 2 were provided.
+  </Step>
+</Steps>
+
+<Note>
+  PlanMark reads only the first sheet in your workbook by default. If your port data is on a sheet other than the first, move it to sheet one before importing, or duplicate the relevant sheet into a new workbook.
+</Note>
+
+## Re-importing After Changes
+
+If your port assignments change — for example, after a re-patch or a cabling update — you can replace the existing spreadsheet data at any time.
+
+<Steps>
+  <Step title="Update your spreadsheet">
+    Make your changes in Excel and save the file.
+  </Step>
+  <Step title="Return to Import Spreadsheet">
+    Click **Data** → **Import Spreadsheet** in the same way you did for the initial import.
+  </Step>
+  <Step title="Select your updated file">
+    Choose the revised file. PlanMark will prompt you to confirm that you want to replace the existing port data. Click **Replace** to proceed.
+  </Step>
+  <Step title="Verify the updated callouts">
+    The plan refreshes with the new port assignments reflected in all faceplate callouts.
+  </Step>
+</Steps>
+
+<Warning>
+  If you made changes to the building plan itself after your last import — such as uploading a revised plan image or re-running symbol detection — re-run detection first and confirm that all location numbers are still correct before re-importing your spreadsheet. Importing stale data against a re-numbered plan will cause port labels to appear at the wrong locations.
+</Warning>

@@ -1,47 +1,77 @@
 ---
-title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+title: "Get Started with PlanMark in Minutes"
+sidebarTitle: "Quickstart"
+description: "Create your account, upload a building plan, configure symbol detection, connect your Excel data, and export an annotated plan in one guided workflow."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
-
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
-
-## Prerequisites
-
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
-
-<Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
-
-    ```bash
-    npm install your-package
-    ```
-  </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
-
-    ```bash
-    your-cli init
-    ```
-  </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
-
-    ```bash
-    your-cli start
-    ```
-  </Step>
-</Steps>
+This guide walks you through every step needed to produce your first annotated building plan with PlanMark. By the end you will have a plan with numbered faceplate callouts linked to your port assignment data — ready to export and share with your team.
 
 <Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
+  Prepare your Excel spreadsheet **before** you start. Having your port assignment data ready means you can complete the entire workflow in one sitting without switching back and forth between tools. See [Spreadsheet Format](/excel/spreadsheet-format) for the required column layout.
 </Tip>
+
+<Steps>
+  <Step title="Create Your Account">
+    Go to [app.planmark.io/signup](https://app.planmark.io/signup) and enter your name, work email address, and a password. Verify your email using the link sent to your inbox, then sign in to reach your PlanMark dashboard.
+
+    <Note>
+      If your organisation uses single sign-on (SSO), select **Sign in with SSO** on the login page and enter your company domain instead of creating a password-based account.
+    </Note>
+  </Step>
+
+  <Step title="Upload Your Building Plan">
+    From the dashboard, click **New Project**, give the project a name, then click **Upload Plan**.
+
+    Select a PDF or image file from your computer and click **Open**. PlanMark uploads the file and generates a preview in the plan viewer. For multi-page PDFs, each page appears as a separate thumbnail in the left panel — click any thumbnail to switch to that page.
+
+    <Note>
+      **Supported plan formats:** PDF (single- and multi-page), PNG, JPEG, and TIFF. For best detection accuracy, use files with a resolution of at least 150 DPI. Maximum file size is 200 MB.
+    </Note>
+  </Step>
+
+  <Step title="Configure the Symbol You Want to Detect">
+    In the **Symbols** panel on the right, click **Add Symbol**. Give the symbol a descriptive name (for example, *Floor Outlet*), then click **Upload Reference Image**.
+
+    Crop or supply a clean, close-up image of the symbol as it appears on your plan — a single instance is enough. PlanMark uses this reference to scan the entire plan for matching instances.
+
+    <Tip>
+      The more closely your reference image matches the symbol's appearance on the plan (same scale, same line weight), the higher the detection confidence will be. You can upload multiple reference images for the same symbol to improve accuracy across different plan styles.
+    </Tip>
+
+    Click **Save Symbol** when you are done. Repeat this step for each distinct symbol type you need to detect on this plan.
+  </Step>
+
+  <Step title="Upload Your Excel Spreadsheet">
+    Click the **Data** tab in the top navigation bar, then click **Upload Spreadsheet**.
+
+    Select your `.xlsx` or `.xls` file and click **Open**. PlanMark reads the workbook and displays a column-mapping screen. Confirm which column contains the **Location Number**, which contains **Port 1**, and (if applicable) which contains **Port 2**, then click **Confirm Mapping**.
+
+    <Note>
+      Your spreadsheet must have one header row. Location numbers must be sequential integers starting from 1. Rows with a Port 2 value will render as dual-port faceplates; rows with only a Port 1 value will render as single-port faceplates.
+    </Note>
+  </Step>
+
+  <Step title="Run Detection and Review the Annotated Plan">
+    Return to the **Plan** tab and click **Run Detection**. PlanMark scans the plan for every instance of your configured symbols. This typically completes in under 30 seconds for a standard A1 plan sheet.
+
+    Once detection finishes, numbered faceplate callouts appear on the plan at each detected location. Use the interactive viewer to:
+
+    - **Zoom and pan** to inspect individual callouts.
+    - **Click a callout** to view the matched spreadsheet row in the side panel.
+    - **Drag a callout** to fine-tune its position if the auto-placement overlaps other text.
+    - **Mark a detection as incorrect** using the flag icon if you need to remove a false positive.
+
+    <Warning>
+      If PlanMark misses symbols or detects false positives, refine your reference image and re-run detection. Blurry or low-contrast reference images are the most common cause of poor results.
+    </Warning>
+  </Step>
+
+  <Step title="Export the Annotated Plan">
+    Once you are satisfied with the annotations, click **Export** in the top-right corner. Choose your preferred output format:
+
+    - **PDF** — a print-ready file with callouts rendered at full resolution.
+    - **PNG / JPEG** — a flat image suitable for reports or email attachments.
+
+    Select a resolution, click **Download**, and your annotated plan saves to your computer. You can re-export at any time without re-running detection.
+  </Step>
+</Steps>

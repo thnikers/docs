@@ -1,0 +1,61 @@
+---
+title: "Generate Port Assignment Reports in PlanMark"
+sidebarTitle: "Reports"
+description: "Generate a tabular port assignment report listing every detected symbol, its location number, and port data — ready for IT handoff or project documentation."
+---
+
+PlanMark can generate a structured tabular report that summarises every detected symbol across your project, including its assigned location number, the floor or sheet it appears on, and the port assignments pulled from your Excel spreadsheet. This report is the primary handoff artifact for IT teams responsible for provisioning switch ports, and it doubles as a verification tool before you finalise and distribute your annotated plans.
+
+## Report Columns
+
+Every generated report includes the following columns:
+
+| Column | Description |
+|---|---|
+| **Location Number** | The sequential number assigned to the detected symbol instance |
+| **Symbol Type** | The reference symbol category the instance was matched to |
+| **Floor / Sheet** | The sheet name or page number where the symbol appears |
+| **Port 1** | The value from the Port 1 column in your imported spreadsheet |
+| **Port 2** | The value from the Port 2 column in your imported spreadsheet |
+
+## Generate a Port Assignment Report
+
+<Steps>
+  <Step title="Open your project">
+    Navigate to your project from the PlanMark dashboard. Ensure that symbol detection has been run and that your Excel spreadsheet has been imported before generating a report, so that port assignment data is fully populated.
+  </Step>
+  <Step title="Click Export → Port Report">
+    In the top navigation bar, click **Export**, then select **Port Report** from the dropdown menu. The report configuration panel will open.
+  </Step>
+  <Step title="Choose a file format">
+    Select the format that best fits your workflow:
+
+    - **Excel (.xlsx)** — Produces a formatted workbook with column headers, ready for sorting, filtering, and further annotation. Recommended for most handoff scenarios.
+    - **CSV** — Produces a plain comma-separated text file. Use this when importing data into another system or when your recipient doesn't use Excel.
+  </Step>
+  <Step title="Optionally filter by symbol type or floor/sheet">
+    Use the **Filter** options in the panel to narrow the report to a specific symbol type (for example, only dual-port faceplates) or to a specific floor or sheet. Leave all filters clear to include every detected symbol in the project.
+  </Step>
+  <Step title="Click Download">
+    Click the **Download** button. PlanMark will compile the report and your browser will prompt you to save the file.
+  </Step>
+</Steps>
+
+<Tip>
+  Download the Excel report and review it before distributing your annotated plans. Sorting by **Port 1** or **Port 2** makes it easy to spot any symbols that were detected but never matched to a spreadsheet row — you can fix those assignments and re-export in one pass.
+</Tip>
+
+<Note>
+  Symbols that were detected on the plan but have no matching row in your imported spreadsheet will still appear in the report. Their **Port 1** and **Port 2** fields will be blank. Use the Location Editor to re-map those location numbers, or update your spreadsheet and re-import to populate the missing data.
+</Note>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Export Annotated Plans" icon="file-arrow-down" href="/export/annotated-plans">
+    Export your plan with all callout overlays as a print-ready PDF or PNG.
+  </Card>
+  <Card title="Import Your Excel Spreadsheet" icon="table" href="/excel/importing">
+    Learn how to import port assignment data from your Excel file into PlanMark.
+  </Card>
+</CardGroup>

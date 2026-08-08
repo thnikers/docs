@@ -1,0 +1,43 @@
+---
+title: "Assigning Port Numbers to Plan Locations"
+sidebarTitle: "Port Assignments"
+description: "Understand how PlanMark maps port identifiers to numbered plan symbols, and how Port 1 and Port 2 control single-port and dual-port faceplate callouts."
+---
+
+Every symbol PlanMark detects on your building plan is assigned a sequential location number. That number represents a physical point on the plan — typically a wall jack, outlet, or patch location — and it links directly to a row in your Excel spreadsheet. The port values you enter in that row describe the actual network or cabling ports installed at that location. PlanMark uses those values to render the correct faceplate callout annotation on your plan.
+
+## Port 1 and Port 2
+
+Each spreadsheet row supports up to two port assignments, stored in the Port 1 and Port 2 columns.
+
+**Port 1** is the primary port. It is always required for every location and is always displayed on the faceplate callout. If a physical location has only one port, Port 1 is the only value you need to provide.
+
+**Port 2** is the secondary port. It is optional. When you supply a Port 2 value, PlanMark renders a dual-port faceplate callout showing both ports stacked vertically — Port 1 on top, Port 2 on bottom. When Port 2 is blank, PlanMark renders a single-port faceplate showing Port 1 only.
+
+## Practical Example
+
+Consider location 3 on your plan — a wall jack with two ports patched back to an IDF cabinet. Port one of that jack is cabled to cabinet port `C-01`, and port two is cabled to `C-02`. In your spreadsheet you would enter:
+
+| Location | Port 1 | Port 2 |
+|----------|--------|--------|
+| 3 | C-01 | C-02 |
+
+PlanMark reads this row, recognises that Port 2 is populated, and draws a dual-port faceplate callout at symbol 3 on the plan. The callout displays `C-01` in the top port position and `C-02` in the bottom port position, giving anyone reading the plan an immediate reference to both physical patch destinations.
+
+## Port Label Naming Conventions
+
+PlanMark treats port values as plain text strings, so you can use any labeling scheme that fits your cabling documentation. Common formats include:
+
+- **Patch panel identifiers** — `PP1-P04`, `IDF-2-P12`
+- **Switch port labels** — `SW3-Gi0/24`, `CORE-Te1/1`
+- **Custom shorthand** — `A-01`, `B-17`, `3F-EAST-06`
+
+There is no enforced format. Use whatever notation already appears in your patch panel documentation so that the callouts on the plan match your existing records without any translation.
+
+<Note>
+  Leaving the Port 2 cell blank and omitting the Port 2 column entirely both result in a single-port faceplate. If your spreadsheet has no column C at all, PlanMark treats every location as single-port. If column C exists but individual cells are empty, only those rows without a Port 2 value receive single-port callouts — rows with a value in column C still receive dual-port callouts.
+</Note>
+
+<Tip>
+  Keep your port labels consistent with the physical labeling on your patch panels and switches. When the identifiers on the plan callouts match what is printed on the hardware, technicians can locate and trace ports quickly without needing a separate lookup document.
+</Tip>

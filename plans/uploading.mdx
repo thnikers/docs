@@ -1,0 +1,51 @@
+---
+title: "Upload a Building Plan to PlanMark"
+sidebarTitle: "Uploading"
+description: "Step-by-step instructions for creating a project and uploading one or more building plan files to PlanMark for symbol detection and annotation."
+---
+
+Before PlanMark can detect symbols and generate faceplate callout annotations, you need to create a project and upload at least one building plan. A project acts as the container for all the plan sheets, symbol settings, and port assignment data related to a specific job or area of a building.
+
+## Upload Your First Plan
+
+<Steps>
+  <Step title="Navigate to Projects → New Project">
+    From the PlanMark dashboard, click **Projects** in the left sidebar, then click the **New Project** button in the top-right corner of the Projects page.
+  </Step>
+  <Step title="Name your project">
+    Enter a descriptive name for the project in the **Project Name** field. Use a name that identifies the building area or scope of work — for example, `Floor 3 Network Ports` or `Building A – Data Closet 2`.
+
+    <Tip>
+      For large buildings with multiple floors, create one project per floor rather than uploading all floors into a single project. This keeps symbol detection runs, callout numbering, and port assignments organized and easy to navigate.
+    </Tip>
+
+    Click **Create Project** to continue.
+  </Step>
+  <Step title="Click Upload Plan and select your file">
+    Inside your new project, click the **Upload Plan** button. A file picker dialog opens. Select your building plan file (PDF, PNG, JPEG, or TIFF) and click **Open**.
+
+    If you are uploading a multi-page PDF, the entire file uploads in one step — PlanMark automatically separates each page into its own plan sheet.
+  </Step>
+  <Step title="Wait for processing to complete">
+    PlanMark processes the uploaded file to prepare it for symbol detection. A progress indicator appears on the plan thumbnail while processing is underway.
+
+    <Note>
+      Large files or high-resolution plans may take up to a few minutes to finish processing. Do not close the browser tab while the progress indicator is active — processing continues in the background, but leaving the page may require you to refresh to see the completed status.
+    </Note>
+  </Step>
+  <Step title="Confirm the plan preview looks correct">
+    Once processing is complete, click the plan thumbnail to open the preview. Verify that the plan renders clearly, is oriented correctly, and shows the area you intended to upload. Zoom in to spot-check that symbol details are sharp and legible.
+
+    <Note>
+      If you uploaded the wrong file or the preview looks incorrect, click the **⋯** (more options) menu on the plan thumbnail and select **Replace Plan**. You can upload a new file without losing your project settings or port assignment data.
+    </Note>
+  </Step>
+</Steps>
+
+## Upload Multiple Plans in One Project
+
+To add more plan sheets to the same project — for example, additional floors or sections in a multi-page workflow where you are not using a PDF — click **Upload Plan** again from the project view. Repeat the upload steps for each additional file. All sheets remain grouped under the same project.
+
+<Tip>
+  Name each plan sheet clearly after uploading. Click the plan title beneath the thumbnail to rename it (for example, `Floor 3 – East Wing`) so you can identify sheets at a glance when running detection or reviewing annotations.
+</Tip>

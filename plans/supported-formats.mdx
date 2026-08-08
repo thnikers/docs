@@ -1,0 +1,55 @@
+---
+title: "Supported Building Plan File Formats in PlanMark"
+sidebarTitle: "Supported Formats"
+description: "Learn which file formats PlanMark accepts for building plans, including resolution requirements, file size limits, and multi-page PDF support."
+---
+
+PlanMark accepts several common building plan file formats so you can work with plans exported directly from CAD tools, scanned as images, or saved as multi-page PDFs. Choosing the right format and export settings before uploading helps PlanMark detect symbols accurately and generate clean callout annotations.
+
+## Accepted File Formats
+
+<CardGroup cols={2}>
+  <Card title="PDF" icon="file-pdf">
+    The recommended format for most workflows. Multi-page PDFs are fully supported — each page is treated as a separate plan sheet within your project.
+  </Card>
+  <Card title="PNG" icon="file-image">
+    Ideal for high-quality raster exports from CAD or drawing tools. Supports transparency and preserves sharp edges on symbols.
+  </Card>
+  <Card title="JPEG" icon="file-image">
+    Widely compatible and suitable for scanned plans. Use the highest quality setting available to minimize compression artifacts.
+  </Card>
+  <Card title="TIFF" icon="file-image">
+    Best choice for high-fidelity scanned originals. Supports lossless compression and is commonly used in architectural workflows.
+  </Card>
+</CardGroup>
+
+## File Specifications
+
+Use the table below as a quick reference when preparing your files for upload.
+
+| Specification | Requirement |
+|---|---|
+| **Accepted formats** | PDF, PNG, JPEG, TIFF |
+| **Minimum resolution** | 150 DPI |
+| **Recommended resolution** | 300 DPI or higher |
+| **Maximum file size** | 50 MB per file |
+| **Multi-page PDF** | Supported — each page becomes a separate plan sheet |
+| **Color mode** | RGB or Grayscale |
+
+## Multi-Page PDF Support
+
+When you upload a multi-page PDF, PlanMark automatically splits the document and treats each page as an individual plan sheet. All sheets are grouped under the same project, so you can run symbol detection independently on each floor or section without creating separate projects.
+
+<Note>
+  Page order is preserved from the original PDF. If your PDF pages are out of sequence, reorder them in your PDF editor before uploading to keep your project organized.
+</Note>
+
+## Resolution and Quality Guidance
+
+<Warning>
+  Scanned plans at very low resolution (below 150 DPI) significantly reduce symbol detection accuracy. Blurry or pixelated symbol edges make it difficult for PlanMark to match reference images reliably. Always verify your scan resolution before uploading.
+</Warning>
+
+<Tip>
+  When exporting from CAD software such as AutoCAD or Revit, set the export resolution to 300 DPI or higher and choose PDF or PNG as the output format. This produces sharp, clean symbol edges that PlanMark can detect with the greatest accuracy.
+</Tip>
